@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>フォルモント住之江101号室 清掃・準備マニュアル</title>
+    <!-- Google Fonts: Inter & Noto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #10b981; /* 清潔感のあるエメラルドグリーン */
+            --primary-dark: #059669;
+            --primary-light: #e6f4ea;
+            --secondary: #1e293b; /* ディープサファイア */
+            --secondary-light: #64748b;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border-color: #e2e8f0;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            
+            --safe-area-top: env(safe-area-inset-top, 0px);
+            --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+        }
+
+        /* リセット・共通スタイル */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans JP', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: calc(80px + var(--safe-area-bottom));
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+
+        /* ヘッダー */
+        header {
+            background: linear-gradient(135deg, var(--secondary) 0%, #0f172a 100%);
+            color: #ffffff;
+            padding: calc(20px + var(--safe-area-top)) 20px 25px 20px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header-title {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-subtitle {
+            font-size: 0.9rem;
+            color: var(--secondary-light);
+            font-weight: 400;
+        }
+
+        .property-badge {
+            background-color: var(--primary);
+            color: #ffffff;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 99px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        /* 上部固定の進捗バー */
+        .progress-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .progress-info {
+            flex-grow: 1;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .progress-bar-bg {
+            background-color: var(--border-color);
+            height: 10px;
+            border-radius: 99px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            background: linear-gradient(90deg, var(--primary) 0%, #34d399 100%);
+            height: 100%;
+            width: 0%;
+            border-radius: 99px;
+            transition: width 0.3s ease;
+        }
+
+        .reset-btn {
+            background-color: #f1f5f9;
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .reset-btn:active {
+            background-color: #e2e8f0;
+            transform: scale(0.97);
+        }
+
+        /* メインコンテンツ */
+        main {
+            padding: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* アコーディオンセクション */
+        .section-card {
+            background-color: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .section-header {
+            padding: 18px 20px;
+            background-color: var(--bg-card);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            user-select: none;
+        }
+
+        .section-title-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-icon {
+            font-size: 1.3rem;
+            width: 32px;
+            height: 32px;
+            background-color: #f1f5f9;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .section-title {
+            font-size: 1.05rem;
+            color: var(--secondary);
+            font-weight: 700;
+        }
+
+        .section-badge {
+            font-size: 0.75rem;
+            background-color: #e2e8f0;
+            color: var(--text-muted);
+            padding: 2px 8px;
+            border-radius: 99px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .section-badge.completed {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        .arrow-icon {
+            font-size: 0.8rem;
+            color: var(--secondary-light);
+            transition: transform 0.3s ease;
+        }
+
+        .section-card.open .arrow-icon {
+            transform: rotate(180deg);
+        }
+
+        /* アコーディオンコンテンツ */
+        .section-content {
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding: 15px 20px 20px 20px;
+            background-color: #fafbfc;
+        }
+
+        .section-card.open .section-content {
+            display: block;
+        }
+
+        /* 注意書き・重要バッジ */
+        .alert-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            color: #b45309;
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .alert-box.important {
+            background-color: #fef2f2;
+            border-left-color: var(--accent-red);
+            color: #991b1b;
+        }
+
+        /* チェックリストアイテム */
+        .todo-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+
+        /* カスタムチェックボックス */
+        .checkbox-container {
+            position: relative;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checkbox-container input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 24px;
+            width: 24px;
+            background-color: #ffffff;
+            border: 2px solid #cbd5e1;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-container input:checked ~ .checkmark {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .checkmark:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+
+        .checkbox-container input:checked ~ .checkmark:after {
+            display: block;
+        }
+
+        .checkbox-container .checkmark:after {
+            left: 7px;
+            top: 3px;
+            width: 6px;
+            height: 11px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .todo-label {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            cursor: pointer;
+            user-select: none;
+            flex-grow: 1;
+            transition: color 0.2s ease;
+        }
+
+        /* チェック時のテキスト打ち消し・トーンダウン */
+        .checkbox-container input:checked ~ .todo-label-text {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+
+        /* 補足説明 */
+        .todo-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+            padding-left: 2px;
+        }
+
+        .todo-desc ul {
+            list-style-type: none;
+            margin-top: 4px;
+            padding-left: 10px;
+        }
+
+        .todo-desc li {
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 2px;
+        }
+
+        .todo-desc li::before {
+            content: "・";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-light);
+        }
+
+        /* 画像コンテナ */
+        .image-container {
+            margin-top: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background-color: #eceff1;
+            position: relative;
+            aspect-ratio: 1;
+            max-width: 250px;
+            cursor: zoom-in;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:active {
+            transform: scale(0.97);
+        }
+
+        .image-badge {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background-color: rgba(15, 23, 42, 0.75);
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            pointer-events: none;
+            backdrop-filter: blur(2px);
+        }
+
+        /* アメニティ一覧用のコンパクトテーブル */
+        .amenity-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .amenity-table th, .amenity-table td {
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .amenity-table th {
+            background-color: #f1f5f9;
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .amenity-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* お手本画像拡大表示（ライトボックス） */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .lightbox-caption {
+            color: #ffffff;
+            font-size: 0.95rem;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 500;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 2rem;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 完了お祝いモーダル */
+        .celebration-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .celebration-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .celebration-content {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 24px;
+            text-align: center;
+            max-width: 85%;
+            width: 340px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .celebration-modal.show .celebration-content {
+            transform: scale(1);
+        }
+
+        .celebration-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            animation: bounce 1s infinite alternate;
+        }
+
+        .celebration-title {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .celebration-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .celebration-btn {
+            background-color: var(--primary);
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* 取扱説明書ボタンのスタイル */
+        .manual-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 8px;
+            margin-bottom: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            width: fit-content;
+        }
+        .manual-link-btn:active {
+            background-color: #d1fae5;
+            transform: scale(0.97);
+        }
+    
+        /* モバイル用のデフォルト表示設定 */
+        .app-container {
+            width: 100%;
+        }
+        .sidebar {
+            width: 100%;
+        }
+        .sidebar-nav {
+            display: none;
+        }
+
+        @media (min-width: 1024px) {
+            body {
+                padding-bottom: 0;
+                overflow: hidden;
+            }
+
+            .app-container {
+                display: flex;
+                height: 100vh;
+                width: 100%;
+            }
+
+            .sidebar {
+                width: 320px;
+                flex-shrink: 0;
+                background: linear-gradient(135deg, var(--secondary) 0%, #0f172a 100%);
+                color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                border-right: 1px solid var(--border-color);
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.05);
+                height: 100%;
+                overflow-y: auto;
+            }
+
+            header {
+                background: none;
+                padding: 30px 24px 15px 24px;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                box-shadow: none;
+            }
+
+            .header-title {
+                font-size: 1.25rem;
+            }
+
+            /* 進捗バーはサイドバー内に馴染ませる */
+            .progress-sticky {
+                position: static;
+                background: rgba(255, 255, 255, 0.05);
+                backdrop-filter: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 20px 24px;
+                box-shadow: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                display: flex;
+            }
+
+            .progress-text {
+                color: #ffffff;
+            }
+
+            .reset-btn {
+                background-color: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                color: #e2e8f0;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .reset-btn:hover {
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            /* サイドバーナビゲーション */
+            .sidebar-nav {
+                display: block;
+                padding: 15px 12px;
+                flex-grow: 1;
+            }
+
+            .sidebar-nav ul {
+                list-style: none;
+            }
+
+            .nav-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px 16px;
+                border-radius: 10px;
+                cursor: pointer;
+                margin-bottom: 6px;
+                transition: all 0.2s ease;
+                user-select: none;
+                color: #cbd5e1;
+            }
+
+            .nav-item:hover {
+                background-color: rgba(255, 255, 255, 0.08);
+                color: #ffffff;
+            }
+
+            .nav-item.active {
+                background-color: var(--primary);
+                color: #ffffff;
+            }
+
+            .nav-item.active .nav-badge {
+                background-color: rgba(255, 255, 255, 0.2);
+                color: #ffffff;
+            }
+
+            .nav-text {
+                font-size: 0.9rem;
+                font-weight: 500;
+                flex-grow: 1;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .nav-badge {
+                font-size: 0.75rem;
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #cbd5e1;
+                padding: 2px 8px;
+                border-radius: 99px;
+                font-weight: 600;
+            }
+
+            .nav-badge.completed {
+                background-color: var(--primary-light);
+                color: var(--primary-dark);
+            }
+
+            /* メインコンテンツスクロール */
+            main {
+                flex-grow: 1;
+                height: 100%;
+                overflow-y: auto;
+                padding: 40px;
+                max-width: 1200px;
+                margin: 0 auto;
+                width: 100%;
+                scroll-behavior: smooth;
+            }
+
+            /* アコーディオンをPCでは常に開いた状態に見せる */
+            .section-card {
+                border-radius: 16px;
+                margin-bottom: 24px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            }
+
+            /* PC時のアコーディオンのヘッダーをクリック不可にし、矢印も消す */
+            .section-header {
+                pointer-events: none; /* クリック無効 */
+                background-color: #ffffff;
+                border-bottom: 1px solid var(--border-color);
+                padding: 20px 24px;
+            }
+
+            .arrow-icon {
+                display: none; /* 矢印非表示 */
+            }
+
+            /* PC時のアコーディオンコンテンツを常に表示 */
+            .section-content {
+                display: block !important;
+                background-color: #ffffff;
+                padding: 24px;
+            }
+
+            /* TODOアイテムをPCで見えやすく調整 */
+            .todo-item {
+                padding: 16px 0;
+                align-items: flex-start;
+                display: flex;
+                gap: 16px;
+            }
+
+            /* 内部レイアウトの最適化：説明文と写真を並列配置（画像がある項目のみ） */
+            .todo-label.has-image {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                gap: 40px;
+                width: 100%;
+            }
+
+            .todo-text-area {
+                flex: 1;
+                min-width: 0;
+            }
+
+            .image-container-wrapper {
+                flex-shrink: 0;
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .todo-desc .image-container {
+                margin-top: 0;
+            }
+            .image-container {
+                max-width: 350px;
+            }
+        }
+</style>
+</head>
+<body>
+
+    <!-- ヘッダー -->
+    
+    <div class="app-container">
+        <!-- 固定サイドバー -->
+        <div class="sidebar">
+            <header>
+        <div class="property-badge">物件管理コード: SUMINOE-101</div>
+        <h1 class="header-title">
+            フォルモント住之江 101号室
+        </h1>
+        <div class="header-subtitle">清掃・次回ゲスト受入準備マニュアル</div>
+    </header>
+            <div class="progress-sticky" id="progressSticky">
+        <div class="progress-info">
+            <div class="progress-text">
+                <span>全体の清掃進捗</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+        </div>
+        <button class="reset-btn" id="resetBtn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            リセット
+        </button>
+    </div>
+
+    <!-- メインコンテンツ -->
+            
+            <!-- サイドバーナビゲーション（目次） -->
+            <div class="sidebar-nav">
+                <ul>
+                    <li class="nav-item active" data-target="card-special">
+                        <span class="nav-text">1. 特別な依頼事項</span>
+                        <span class="nav-badge" id="nav-badge-special">0/3</span>
+                    </li>
+                    <li class="nav-item" data-target="card-trash">
+                        <span class="nav-text">2. ゴミの回収・廃棄</span>
+                        <span class="nav-badge" id="nav-badge-trash">0/3</span>
+                    </li>
+                    <li class="nav-item" data-target="card-kitchen">
+                        <span class="nav-text">3. 水回り：キッチン</span>
+                        <span class="nav-badge" id="nav-badge-kitchen">0/5</span>
+                    </li>
+                    <li class="nav-item" data-target="card-bathroom">
+                        <span class="nav-text">4. 水回り：バスルーム</span>
+                        <span class="nav-badge" id="nav-badge-bathroom">0/4</span>
+                    </li>
+                    <li class="nav-item" data-target="card-toilet">
+                        <span class="nav-text">5. 水回り：洗面台・トイレ</span>
+                        <span class="nav-badge" id="nav-badge-toilet">0/4</span>
+                    </li>
+                    <li class="nav-item" data-target="card-rooms">
+                        <span class="nav-text">6. 客室清掃・ベッドメイク</span>
+                        <span class="nav-badge" id="nav-badge-rooms">0/6</span>
+                    </li>
+                    <li class="nav-item" data-target="card-supplies">
+                        <span class="nav-text">7. 消耗品・アメニティ補充</span>
+                        <span class="nav-badge" id="nav-badge-supplies">0/7</span>
+                    </li>
+                    <li class="nav-item" data-target="card-exterior">
+                        <span class="nav-text">8. 玄関周り・外観・バルコニー</span>
+                        <span class="nav-badge" id="nav-badge-exterior">0/2</span>
+                    </li>
+                    <li class="nav-item" data-target="card-final">
+                        <span class="nav-text">9. 退出時最終チェック</span>
+                        <span class="nav-badge" id="nav-badge-final">0/4</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        <main>
+        
+        <!-- 1. 特別な依頼事項 -->
+        <div class="section-card" id="card-special">
+            <div class="section-header" onclick="toggleSection('card-special')">
+                <div class="section-title-area">
+                    <div class="section-icon">🔔</div>
+                    <span class="section-title">1. 特別な依頼事項</span>
+                    <span class="section-badge" id="badge-special">0/3</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box important">
+                    ※物件特有の重要事項です。毎回必ず実施・確認してください。
+                </div>
+                
+                <!-- アイテム 1-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="special" id="todo-1-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-1-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">【最重要】洗濯乾燥機のフィルタ清掃</span>
+                        <div class="todo-desc">
+                            乾燥機能の低下や故障を防ぐため、毎回必ず乾燥機のホコリ・フィルタの清掃を行ってください。
+                            <br>
+                            <a href="https://drive.google.com/drive/folders/1IMhPV8V5gGt5mISMOFpoJSK14BxzfOBp?usp=sharing" target="_blank" rel="noopener" class="manual-link-btn">
+                                📖 洗濯乾燥機 取扱説明書を開く (外部フォルダ)
+                            </a>
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/washing_filter_get.jpg', '洗濯乾燥機のフィルター取り外し')">
+                                <img src="images/photo/washing_filter_get.jpg" alt="洗濯乾燥機のフィルター取り外し">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 1-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="special" id="todo-1-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-1-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">ソファーベッドの事前準備（予約人数に応じたセット）</span>
+                        <div class="todo-desc">
+                            予約時のゲスト人数に合わせて、ソファーベッドの状態を以下のようにセットしてください。
+                            <ul style="margin-top: 6px; margin-bottom: 8px; list-style-type: none; padding-left: 0;">
+                                <li style="margin-bottom: 12px; padding-left: 0;"><strong style="color: var(--secondary);">【ゲストが5名以上の場合】（ベッド状態）:</strong><br>
+                                    ソファーベッドを展開し、シーツ掛けとクッション・枕のベッドメイクを完了させてください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" style="margin-top: 6px; margin-bottom: 6px;" onclick="openLightbox('images/photo/sofa_bed_opened.jpg', 'ソファーベッド展開・メイク状態（5名以上時）')">
+                                        <img src="images/photo/sofa_bed_opened.jpg" alt="ソファーベッド展開・メイク状態（5名以上時）">
+                                        <span class="image-badge">5名以上：ベッド状態</span>
+                                    </div>
+                                </li>
+                                <li style="padding-left: 0;"><strong style="color: var(--secondary);">【ゲストが4名以下の場合】（ソファー状態）:</strong><br>
+                                    ソファーベッドを展開せず、通常のソファー状態にし、クッションを綺麗に並べて整えてください。
+                                    <div class="image-container" style="margin-top: 6px;" onclick="openLightbox('images/photo/sofa_bed_closed.jpg', 'ソファーベッド収納状態（4名以下時）')">
+                                        <img src="images/photo/sofa_bed_closed.jpg" alt="ソファーベッド収納状態（4名以下時）">
+                                        <span class="image-badge">4名以下：ソファー状態</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 1-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="special" id="todo-1-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-1-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">ベビー用品の設置（リクエスト時のみ）</span>
+                        <div class="todo-desc">
+                            事前にベビーベッドの利用希望（リクエスト）があった場合のみ、折りたたみ式ベビーベッドを組み立て、敷きパッド等のセッティングを行ってください。
+                            <br>
+                            <a href="https://drive.google.com/drive/folders/1IMhPV8V5gGt5mISMOFpoJSK14BxzfOBp?usp=sharing" target="_blank" rel="noopener" class="manual-link-btn">
+                                📖 ベビーベッド 取扱説明書を開く (外部フォルダ)
+                            </a>
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/baby_crib.jpg', 'ベビーベッドの設置状態')">
+                                <img src="images/photo/baby_crib.jpg" alt="ベビーベッドの設置状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. ゴミの回収・廃棄 -->
+        <div class="section-card" id="card-trash">
+            <div class="section-header" onclick="toggleSection('card-trash')">
+                <div class="section-title-area">
+                    <div class="section-icon">🗑️</div>
+                    <span class="section-title">2. ゴミの回収・廃棄</span>
+                    <span class="section-badge" id="badge-trash">0/3</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <!-- アイテム 2-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="trash" id="todo-2-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-2-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">室内すべてのゴミ箱からゴミを回収・袋セット</span>
+                        <div class="todo-desc">
+                            ゴミを分別して回収し、ゴミ箱には新しく清潔なゴミ袋を綺麗にセットしてください（はみ出しすぎないよう整える）。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/trash_can.jpg', 'ゴミ袋のきれいなセット状態')">
+                                <img src="images/photo/trash_can.jpg" alt="ゴミ袋のきれいなセット状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 2-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="trash" id="todo-2-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-2-2">
+                        <span class="todo-label-text">回収したゴミを建物前のゴミ収集ボックスへ廃棄</span>
+                        <div class="todo-desc">
+                            回収ゴミは建物前指定のゴミ収集ボックスへ廃棄してください。<br>
+                            <span style="color:var(--accent-red); font-weight:bold;">※日曜日以外はゴミ回収業者が回収します。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 2-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="trash" id="todo-2-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-2-3">
+                        <span class="todo-label-text">冷蔵庫・電子レンジ内の残置物の廃棄</span>
+                        <div class="todo-desc">
+                            前ゲストの残置物（飲食物や調味料等）がないか冷蔵庫・電子レンジ内を確認し、すべて廃棄・空にしてください。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. 水回りの清掃（キッチン） -->
+        <div class="section-card" id="card-kitchen">
+            <div class="section-header" onclick="toggleSection('card-kitchen')">
+                <div class="section-title-area">
+                    <div class="section-icon">🍳</div>
+                    <span class="section-title">3. 水回り：キッチン</span>
+                    <span class="section-badge" id="badge-kitchen">0/5</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box">
+                    <strong>合格ライン基準：</strong>水滴・水垢ゼロ、異臭ゼロ、油汚れゼロ、カトラリーの整頓
+                </div>
+                
+                <!-- アイテム 3-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">食器類の洗浄・乾燥・元の場所への収納</span>
+                            <div class="todo-desc">
+                                シンク内にある食器類を本洗いし、しっかりと水気を拭き取るか乾燥させて、元の収納（食器棚・シンク下収納等）へ綺麗に並べて収納してください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/kitchen_under_sink.jpg', 'シンク下収納内の食器・備品の整頓状態')">
+                                    <img src="images/photo/kitchen_under_sink.jpg" alt="シンク下収納内の食器・備品の整頓状態">
+                                    <span class="image-badge">収納お手本</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 3-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">シンク・排水口のゴミ除去＆水滴拭き上げ</span>
+                            <div class="todo-desc">
+                                排水口のネット内に溜まったゴミを捨て、シンク全体および蛇口の水垢を磨き落とし、最後に水滴が残らないように完全に拭き上げてください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/kitchen_sink.jpg', '水滴のないシンク・蛇口')">
+                                    <img src="images/photo/kitchen_sink.jpg" alt="水滴のないシンク・蛇口">
+                                    <span class="image-badge">お手本写真 ①</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/kitchen_drain_parts.jpg', '排水口パーツの分解清掃状態')">
+                                    <img src="images/photo/kitchen_drain_parts.jpg" alt="排水口パーツの分解清掃状態">
+                                    <span class="image-badge">お手本写真 ②</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 3-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">置型食洗機内の確認・簡易清掃</span>
+                        <div class="todo-desc">
+                            食洗機の内部を確認し、残菜フィルターのゴミを捨てて、内部に汚れが残っていないか清掃・確認を行ってください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/kitchen_dishwasher.jpg', '食洗機内部の状態確認')">
+                                <img src="images/photo/kitchen_dishwasher.jpg" alt="食洗機内部の状態確認">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 3-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-4">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">冷蔵庫内の拭き掃除・確認</span>
+                        <div class="todo-desc">
+                            冷蔵庫のトレイやポケットにこぼれた汚れがないか確認し、固く絞ったダスターで拭き掃除を行ってください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/kitchen_fridge.jpg', '清掃後の冷蔵庫内')">
+                                <img src="images/photo/kitchen_fridge.jpg" alt="清掃後の冷蔵庫内">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 3-5 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-5">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">引き出し内カトラリー類の整頓</span>
+                        <div class="todo-desc">
+                            箸、スプーン、フォークなどのカトラリーが種類別に美しく揃えて並べられているか確認・整頓してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/kitchen_drawer.jpg', '整頓されたカトラリー引き出し')">
+                                <img src="images/photo/kitchen_drawer.jpg" alt="整頓されたカトラリー引き出し">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. 水回りの清掃（バスルーム） -->
+        <div class="section-card" id="card-bathroom">
+            <div class="section-header" onclick="toggleSection('card-bathroom')">
+                <div class="section-title-area">
+                    <div class="section-icon">🛁</div>
+                    <span class="section-title">4. 水回り：バスルーム</span>
+                    <span class="section-badge" id="badge-bathroom">0/4</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box">
+                    <strong>合格ライン基準：</strong>髪の毛・皮脂汚れ完全除去、鏡の曇り・拭きムラゼロ、水滴完全拭き取り
+                </div>
+
+                <!-- アイテム 4-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="bathroom" id="todo-4-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-4-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">浴槽・床・壁の洗浄および水滴の完全拭き取り</span>
+                        <div class="todo-desc">
+                            バスタブ、床、壁の皮脂汚れを洗剤とスポンジで洗浄してください。カビ発生防止のため、清掃後は水滴をスクイジーや乾いたクロスで完全に拭き取ってください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/bath_all.jpg', '浴室の全景と乾燥状態')">
+                                <img src="images/photo/bath_all.jpg" alt="浴室の全景と乾燥状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 4-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="bathroom" id="todo-4-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-4-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">排水溝の髪の毛除去と部品の分解清掃</span>
+                        <div class="todo-desc">
+                            排水口カバーおよび内部ヘアキャッチャーに絡まった髪の毛・ヌメリを確実に取り除き、磨き洗いしてください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/bath_drain_parts.jpg', '排水溝パーツの分解清掃')">
+                                <img src="images/photo/bath_drain_parts.jpg" alt="排水溝パーツの分解清掃">
+                                <span class="image-badge">お手本写真 ①</span>
+                            </div>
+                            <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/bath_drain_cover.jpg', '排水口カバーのセット状態')">
+                                <img src="images/photo/bath_drain_cover.jpg" alt="排水口カバーのセット状態">
+                                <span class="image-badge">お手本写真 ②</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 4-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="bathroom" id="todo-4-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-4-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">シャンプー・ソープ類ボトルの拭き上げと整頓</span>
+                        <div class="todo-desc">
+                            シャンプー、コンディショナー、ボディソープのボトルのヌメリや水滴を拭き取り、ラックにラベルが正面を向くように並べて設置してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/bath_amenities.jpg', '整頓されたバスアメニティボトル')">
+                                <img src="images/photo/bath_amenities.jpg" alt="整頓されたバスアメニティボトル">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 4-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="bathroom" id="todo-4-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-4-4">
+                        <span class="todo-label-text">シャワーカーテンや椅子の配置確認</span>
+                        <div class="todo-desc">
+                            浴室の椅子や桶を所定の位置に戻し、全体を清潔な状態に整えてください。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. 水回りの清掃（洗面台・トイレ） -->
+        <div class="section-card" id="card-toilet">
+            <div class="section-header" onclick="toggleSection('card-toilet')">
+                <div class="section-title-area">
+                    <div class="section-icon">🧼</div>
+                    <span class="section-title">5. 水回り：洗面台・トイレ</span>
+                    <span class="section-badge" id="badge-toilet">0/4</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box">
+                    <strong>合格ライン基準：</strong>鏡の指紋・水垢ゼロ、便座裏の尿石・汚れ完全除去、床のホコリ・髪の毛ゼロ
+                </div>
+
+                <!-- アイテム 5-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="toilet" id="todo-5-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-5-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">洗面台のシンク磨き・排水口清掃・鏡の拭き上げ</span>
+                        <div class="todo-desc">
+                            洗面ボウルを磨き洗いし、水滴を拭き取ります。また、排水口のゴミ受け（ヘアキャッチャー）を取り外して髪の毛やヌメリを綺麗に取り除き、磨き洗いしてください。鏡はマイクロファイバークロス等を用いて水垢や指紋、拭きムラがないように綺麗に磨き上げてください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/wash_sink.jpg', '洗面ボウルの清掃状態')">
+                                <img src="images/photo/wash_sink.jpg" alt="洗面ボウルの清掃状態">
+                                <span class="image-badge">お手本写真 ①</span>
+                            </div>
+                            <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/wash_drain_filter.jpg', '洗面台排水口のヘアキャッチャー（ゴミ受け）の清掃')">
+                                <img src="images/photo/wash_drain_filter.jpg" alt="洗面台排水口のヘアキャッチャー（ゴミ受け）の清掃">
+                                <span class="image-badge">お手本写真 ②</span>
+                            </div>
+                            <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/wash_all.jpg', '鏡と洗面台の全景')">
+                                <img src="images/photo/wash_all.jpg" alt="鏡と洗面台の全景">
+                                <span class="image-badge">お手本写真 ③</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 5-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="toilet" id="todo-5-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-5-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">便器内・便座の裏表・トイレ周りの清掃</span>
+                        <div class="todo-desc">
+                            便器の内部をブラシで清掃し、便座の表裏、フチ、蓋をアルコール除菌シート等で徹底的に拭き掃除してください（特に便座の裏側は汚れが残りやすいため注意）。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/toilet_all.jpg', '清掃後のトイレ全体')">
+                                <img src="images/photo/toilet_all.jpg" alt="清掃後のトイレ全体">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 5-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="toilet" id="todo-5-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-5-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">トイレ床（便器の根元）の拭き掃除</span>
+                        <div class="todo-desc">
+                            トイレの床全体、特に便器の根元の隙間に溜まりやすいホコリや汚れを綺麗に拭き取ってください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/toilet_floor.jpg', '便器根元と床の清掃状態')">
+                                <img src="images/photo/toilet_floor.jpg" alt="便器根元と床の清掃状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 5-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="toilet" id="todo-5-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-5-4">
+                        <span class="todo-label-text">トイレットペーパーの先端三角折り</span>
+                        <div class="todo-desc">
+                            ホルダーにセットされているペーパーの先端を綺麗に「三角折り（ファイヤー折り）」にして整えてください。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. 各部屋の基本清掃・ベッドメイク -->
+        <div class="section-card" id="card-rooms">
+            <div class="section-header" onclick="toggleSection('card-rooms')">
+                <div class="section-title-area">
+                    <div class="section-icon">🛏️</div>
+                    <span class="section-title">6. 客室清掃・ベッドメイク</span>
+                    <span class="section-badge" id="badge-rooms">0/6</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box">
+                    <strong>合格ライン基準：</strong>シーツにシワ・たるみ・髪の毛がないこと、ベッド下にホコリがないこと
+                </div>
+
+                <!-- アイテム 6-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-6-1">
+                        <span class="todo-label-text">清掃前の忘れ物チェック（重要）</span>
+                        <div class="todo-desc">
+                            清掃を開始する前に、各部屋、ベッドの下、クローゼット、引き出しの中にゲストの忘れ物がないか確認してください。<br>
+                            <span style="color:var(--accent-red); font-weight:bold;">※発見した場合は即座に写真付きで報告してください。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 6-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-6-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">リネン類の全交換＆ダブルベッドメイク</span>
+                        <div class="todo-desc">
+                            使用済みのシーツ、枕カバー、布団カバーをすべて回収し、清潔なリネンに交換してください。シーツは四方をピンと張り、たるみやシワのないようにセットします。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/bed_double.jpg', 'ダブルベッドのセット完了状態')">
+                                <img src="images/photo/bed_double.jpg" alt="ダブルベッドのセット完了状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 6-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-6-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">シングルベッドメイク</span>
+                        <div class="todo-desc">
+                            シングルベッドも同様に、シワや髪の毛のないようにカバーを掛け、ライナーやクッションを美しく配置してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/bed_single.jpg', 'シングルベッドのセット完了状態')">
+                                <img src="images/photo/bed_single.jpg" alt="シングルベッドのセット完了状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 6-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-6-4">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">ベッド下の掃除機がけ</span>
+                        <div class="todo-desc">
+                            ベッド下や隙間に溜まったホコリ、髪の毛、ゴミを掃除機で念入りに除去してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/bed_under.jpg', 'ベッド下の状態確認')">
+                                <img src="images/photo/bed_under.jpg" alt="ベッド下の状態確認">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 6-5 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-6-5">
+                        <span class="todo-label-text">全室の掃除機がけ＆フローリング拭き掃除</span>
+                        <div class="todo-desc">
+                            リビング、寝室、廊下の床全体に掃除機をかけ、フローリング部分は水拭き（または専用ワイパー）でスッキリと拭き上げてください。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 6-6 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-6">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-6-6">
+                        <span class="todo-label-text">家具・水平面のホコリ拭き取り</span>
+                        <div class="todo-desc">
+                            テレビ台、テーブル、棚の上、窓枠など、ホコリが目立ちやすい水平部分をダスターで綺麗に拭き取ってください。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. 消耗品・アメニティの補充 -->
+        <div class="section-card" id="card-supplies">
+            <div class="section-header" onclick="toggleSection('card-supplies')">
+                <div class="section-title-area">
+                    <div class="section-icon">🧴</div>
+                    <span class="section-title">7. 消耗品・アメニティ補充</span>
+                    <span class="section-badge" id="badge-supplies">0/7</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box">
+                    ※残量が少なくなっているものは補充し、予備を指定の保管場所にセットしてください。
+                </div>
+
+                <!-- アイテム 7-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">アメニティ・タオルの設置と補充</span>
+                        <div class="todo-desc">
+                            タオル類、シャンプー・ソープ類、ティッシュ等の設置量を確認し、規定数に満たない場合は補充してください。連泊用の「災害用タオル」の配置も確認してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/towel_rack.jpg', 'タオルの収納・配置状態')">
+                                <img src="images/photo/towel_rack.jpg" alt="タオルの収納・配置状態">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                            
+                            <table class="amenity-table">
+                                <thead>
+                                    <tr>
+                                        <th>品名</th>
+                                        <th>設置基準（必須）</th>
+                                        <th>予備・配置場所</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>トイレットペーパー</td>
+                                        <td>常に2ロール以上セット</td>
+                                        <td>残りは収納棚に補充</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ティッシュペーパー</td>
+                                        <td>各部屋に1個ずつ設置</td>
+                                        <td>予備をストックへ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>シャンプー・ソープ類</td>
+                                        <td>ボトル満量近くまで</td>
+                                        <td>洗面台下のストック液で補充</td>
+                                    </tr>
+                                    <tr>
+                                        <td>食器用洗剤・スポンジ</td>
+                                        <td>洗剤満量、スポンジ劣化時交換</td>
+                                        <td>キッチン下ストックより補充</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 7-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">洗面台下の洗剤・消耗品予備ストック確認</span>
+                        <div class="todo-desc">
+                            洗面台の下の収納を開け、ストック用の洗剤や予備品が綺麗に整頓されて収まっているか確認・補充してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/bihin/stock_wash_under.jpg', '洗面台下のストック状態')">
+                                <img src="images/bihin/stock_wash_under.jpg" alt="洗面台下のストック状態">
+                                <span class="image-badge">備品写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 7-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">クローゼット内の消臭スプレー・備品確認</span>
+                        <div class="todo-desc">
+                            クローゼットに、消臭スプレー、ハンガー、アイロン台、アイロンが所定の位置に綺麗に収納されているか確認してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/bihin/closet_amenities.jpg', 'クローゼット内の消臭スプレー・アイロン等')">
+                                <img src="images/bihin/closet_amenities.jpg" alt="クローゼット内の消臭スプレー・アイロン等">
+                                <span class="image-badge">備品写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 7-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-4">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">リネンストック用クリアケースの確認</span>
+                        <div class="todo-desc">
+                            リネン保管棚の "Staff Only / Do Not Use" ラベルのあるクリアケース内に、次々回用のシーツやカバー類が保管されていることを確認してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/bihin/closet_linens.jpg', 'リネンストック保管ケース')">
+                                <img src="images/bihin/closet_linens.jpg" alt="リネンストック保管ケース">
+                                <span class="image-badge">備品写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 7-5 (白いボックス) -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-5">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">クローゼット内白いボックス（消耗品予備・ベビーブランケット）の確認</span>
+                            <div class="todo-desc">
+                                クローゼット内にある白いボックスの中身を確認し、消耗品の予備やベビー用ブランケットが綺麗に整頓・補充されているか確認してください。
+                                <ul>
+                                    <li>ボックス①：トイレットペーパー予備</li>
+                                    <li>ボックス②：ベビー用ブランケット（星柄・2枚）</li>
+                                    <li>ボックス③：フローリングワイパー用シート類の予備（ドライ・ウェット・お掃除シート）</li>
+                                </ul>
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/bihin/stock_toilet_paper.jpg', '白いボックス：トイレットペーパー予備')">
+                                    <img src="images/bihin/stock_toilet_paper.jpg" alt="白いボックス：トイレットペーパー予備">
+                                    <span class="image-badge">ボックス① 予備</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/bihin/white_box_blanket.jpg', '白いボックス：ベビー用ブランケット（星柄・2枚）')">
+                                    <img src="images/bihin/white_box_blanket.jpg" alt="白いボックス：ベビー用ブランケット（星柄・2枚）">
+                                    <span class="image-badge">ボックス② ブランケット</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/bihin/white_box_sheets.jpg', '白いボックス：掃除用ワイパーシート類予備')">
+                                    <img src="images/bihin/white_box_sheets.jpg" alt="白いボックス：掃除用ワイパーシート類予備">
+                                    <span class="image-badge">ボックス③ シート類予備</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 7-6 (キッチン吊り戸棚) -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-6">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-6">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">キッチン吊り戸棚内の洗剤・消耗品予備確認</span>
+                            <div class="todo-desc">
+                                キッチンの吊り戸棚を開け、食器用洗剤の予備、キッチン漂白剤、除菌シート等のストックが綺麗に整頓されて収まっているか確認・補充してください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/bihin/kitchen_stock.jpg', 'キッチン吊り戸棚内のストック状態')">
+                                    <img src="images/bihin/kitchen_stock.jpg" alt="キッチン吊り戸棚内のストック状態">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 7-7 (トイレ内ストック・補助便座) -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="supplies" id="todo-7-7">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-7-7">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">トイレ内棚の消耗品・ベビー補助便座の確認</span>
+                            <div class="todo-desc">
+                                トイレ上部の棚およびペーパーホルダー下のスリム棚を確認し、トイレットペーパーのストック、消臭元、掃除用シート、ベビー用補助便座が所定の位置に綺麗に配置・補充されていることを確認してください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/bihin/toilet_shelf.jpg', 'トイレ上部棚（ペーパー・消臭元・補助便座）')">
+                                    <img src="images/bihin/toilet_shelf.jpg" alt="トイレ上部棚（ペーパー・消臭元・補助便座）">
+                                    <span class="image-badge">棚上の配置</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/bihin/toilet_slimshelf.jpg', 'ペーパーホルダー下スリム棚の予備ペーパー')">
+                                    <img src="images/bihin/toilet_slimshelf.jpg" alt="ペーパーホルダー下スリム棚の予備ペーパー">
+                                    <span class="image-badge">スリム棚の配置</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. 外観・バルコニー -->
+        <div class="section-card" id="card-exterior">
+            <div class="section-header" onclick="toggleSection('card-exterior')">
+                <div class="section-title-area">
+                    <div class="section-icon">🚪</div>
+                    <span class="section-title">8. 玄関周り・外観・バルコニー</span>
+                    <span class="section-badge" id="badge-exterior">0/2</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <!-- アイテム 8-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="exterior" id="todo-8-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-8-1">
+                        <span class="todo-label-text">玄関周り・ポスト内チラシの完全廃棄</span>
+                        <div class="todo-desc">
+                            玄関ドアの外側を拭き、ポストの中にチラシが溜まっている場合はすべて回収してゴミ箱へ廃棄してください。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 8-2 (バルコニー) -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="exterior" id="todo-8-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-8-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">バルコニーの掃き掃除と室外機の汚れ確認</span>
+                            <div class="todo-desc">
+                                バルコニーの床にゴミや落ち葉がないか掃き掃除を行い、室外機の上に埃や汚れがあれば雑巾等で綺麗に拭き取ってください。排水口の詰まりも確認してください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/balcony.jpg', 'バルコニーおよび室外機の清掃状態')">
+                                    <img src="images/photo/balcony.jpg" alt="バルコニーおよび室外機の清掃状態">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 9. 退出前の最終チェック・報告 -->
+        <div class="section-card" id="card-final">
+            <div class="section-header" onclick="toggleSection('card-final')">
+                <div class="section-title-area">
+                    <div class="section-icon">✓</div>
+                    <span class="section-title">9. 退出時最終チェック</span>
+                    <span class="section-badge" id="badge-final">0/4</span>
+                </div>
+                <span class="arrow-icon">▼</span>
+            </div>
+            <div class="section-content">
+                <div class="alert-box important">
+                    ※無駄な電気代の発生や、セキュリティ上のトラブルを防ぐための最重要工程です。
+                </div>
+
+                <!-- アイテム 9-1 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="final" id="todo-9-1">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-9-1">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">エアコン、照明、テレビ等の電源オフ確認</span>
+                        <div class="todo-desc">
+                            すべての照明、テレビ、エアコンなどの電源が完全に「オフ」になっていることを確認して、節電対策を徹底してください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/power_off.jpg', '給湯器等のリモコンオフ画面')">
+                                <img src="images/photo/power_off.jpg" alt="給湯器等のリモコンオフ画面">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 9-2 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="final" id="todo-9-2">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-9-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">エアコン・テレビ等リモコンの並べ置き</span>
+                        <div class="todo-desc">
+                            リモコン類はテレビ台やテーブルの上にきれいに並べて置いてください。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/ac_remote.jpg', 'エアコンリモコンの設定と配置')">
+                                <img src="images/photo/ac_remote.jpg" alt="エアコンリモコンの設定と配置">
+                                <span class="image-badge">お手本写真</span>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 9-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="final" id="todo-9-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-9-3">
+                        <span class="todo-label-text">全窓および玄関の施錠確認</span>
+                        <div class="todo-desc">
+                            すべての窓の鍵が閉まっているか、防犯上の観点から施錠を確実に確認し、玄関ドアを閉めて施錠（キーボックス格納等）を行ってください。
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 9-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="final" id="todo-9-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-9-4">
+                        <span class="todo-label-text">報告用写真の撮影（各ベッド・水回り・全体）</span>
+                        <div class="todo-desc">
+                            清掃完了のエビデンスとして、以下の写真を撮影してください。
+                            <ul>
+                                <li>各ベッドのセッティング状態</li>
+                                <li>水回り全体（キッチンシンク、バスルーム、トイレ、洗面台）</li>
+                                <li>客室全体の様子</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    </div>
+
+
+    <!-- 写真拡大用ライトボックス -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">×</button>
+            <img class="lightbox-img" id="lightboxImg" src="" alt="拡大画像">
+            <div class="lightbox-caption" id="lightboxCaption">画像の説明</div>
+        </div>
+    </div>
+
+    <!-- 完了お祝いモーダル -->
+    <div class="celebration-modal" id="celebrationModal">
+        <div class="celebration-content">
+            <div class="celebration-icon">🎉</div>
+            <div class="celebration-title">清掃お疲れ様でした！</div>
+            <div class="celebration-desc">すべての清掃・準備チェック項目が完了しました。施錠と写真報告を行い、退出してください。</div>
+            <button class="celebration-btn" onclick="closeCelebration()">閉じる</button>
+        </div>
+    </div>
+
+    <!-- JavaScript ロジック -->
+    <script>
+        // セクションの開閉
+        function toggleSection(id) {
+            const card = document.getElementById(id);
+            if (card) {
+                card.classList.toggle('open');
+            }
+        }
+
+        // ライトボックスを開く
+        function openLightbox(src, caption) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            
+            if (lightbox && lightboxImg && lightboxCaption) {
+                lightboxImg.src = src;
+                lightboxCaption.textContent = caption;
+                lightbox.classList.add('show');
+                document.body.style.overflow = 'hidden'; // 背面のスクロールを禁止
+            }
+        }
+
+        // ライトボックスを閉じる
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.classList.remove('show');
+                document.body.style.overflow = 'auto'; // スクロール再開
+            }
+        }
+
+        // 完了祝いモーダルの開閉
+        function openCelebration() {
+            const modal = document.getElementById('celebrationModal');
+            if (modal) {
+                modal.classList.add('show');
+            }
+        }
+
+        function closeCelebration() {
+            const modal = document.getElementById('celebrationModal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // 進捗管理とLocalStorageの制御
+        document.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('.todo-check');
+            const progressPercent = document.getElementById('progressPercent');
+            const progressBarFill = document.getElementById('progressBarFill');
+            const resetBtn = document.getElementById('resetBtn');
+            
+            // 初回読み込み時にアコーディオンの最初の項目を開く
+            const firstCard = document.querySelector('.section-card');
+            if (firstCard) {
+                firstCard.classList.add('open');
+            }
+
+            // ローカルストレージから状態を復元
+            loadState();
+
+            // 各チェックボックスのイベント
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    saveState();
+                    updateProgress();
+                });
+            });
+
+            // リセットボタンのイベント
+            if (resetBtn) {
+                resetBtn.addEventListener('click', () => {
+                    if (confirm('すべてのチェックをリセットしてよろしいですか？')) {
+                        checkboxes.forEach(cb => {
+                            cb.checked = false;
+                        });
+                        saveState();
+                        updateProgress();
+                        // 最初のセクション以外を閉じる
+                        document.querySelectorAll('.section-card').forEach((card, idx) => {
+                            if (idx === 0) {
+                                card.classList.add('open');
+                            } else {
+                                card.classList.remove('open');
+                            }
+                        });
+                    }
+                });
+            }
+
+            // 進捗の更新
+            function updateProgress() {
+                const total = checkboxes.length;
+                const checked = document.querySelectorAll('.todo-check:checked').length;
+                const percent = total > 0 ? Math.round((checked / total) * 100) : 0;
+                
+                if (progressPercent && progressBarFill) {
+                    progressPercent.textContent = `${percent}%`;
+                    progressBarFill.style.width = `${percent}%`;
+                }
+
+                // セクションごとのバッジ数値を更新
+                const sections = ['special', 'trash', 'kitchen', 'bathroom', 'toilet', 'rooms', 'supplies', 'exterior', 'final'];
+                sections.forEach(sec => {
+                    const secTotal = document.querySelectorAll(`.todo-check[data-section="${sec}"]`).length;
+                    const secChecked = document.querySelectorAll(`.todo-check[data-section="${sec}"]:checked`).length;
+                    
+                    // アコーディオンのヘッダーバッジ
+                    const badge = document.getElementById(`badge-${sec}`);
+                    if (badge) {
+                        badge.textContent = `${secChecked}/${secTotal}`;
+                        if (secChecked === secTotal && secTotal > 0) {
+                            badge.classList.add('completed');
+                        } else {
+                            badge.classList.remove('completed');
+                        }
+                    }
+
+                    // 左サイドバーの目次ナビバッジ
+                    const navBadge = document.getElementById(`nav-badge-${sec}`);
+                    if (navBadge) {
+                        navBadge.textContent = `${secChecked}/${secTotal}`;
+                        if (secChecked === secTotal && secTotal > 0) {
+                            navBadge.classList.add('completed');
+                        } else {
+                            navBadge.classList.remove('completed');
+                        }
+                    }
+                });
+
+                // 全て完了した際のアニメーション表示
+                if (percent === 100 && checked === total) {
+                    setTimeout(() => {
+                        openCelebration();
+                    }, 500);
+                }
+            }
+
+            function saveState() {
+                const state = {};
+                checkboxes.forEach(cb => {
+                    state[cb.id] = cb.checked;
+                });
+                localStorage.setItem('suminoe_101_cleaning_state', JSON.stringify(state));
+            }
+
+            // 状態の復元
+            function loadState() {
+                const saved = localStorage.getItem('suminoe_101_cleaning_state');
+                if (saved) {
+                    try {
+                        const state = JSON.parse(saved);
+                        checkboxes.forEach(cb => {
+                            if (state[cb.id] !== undefined) {
+                                cb.checked = state[cb.id];
+                            }
+                        });
+                    } catch (e) {
+                        console.error('Error parsing saved state:', e);
+                    }
+                }
+                updateProgress();
+            }
+        
+            // 各セクションの要素
+            const sectionCards = document.querySelectorAll('.section-card');
+            
+            // ナビゲーションのクリックイベント（スクロール）
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const targetId = item.getAttribute('data-target');
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        // モバイル表示のときはクリック時にアコーディオンを開く
+                        if (window.innerWidth < 1024) {
+                            targetEl.classList.add('open');
+                        }
+                        
+                        // スクロール
+                        targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        
+                        // アクティブクラスの更新
+                        navItems.forEach(nav => nav.classList.remove('active'));
+                        item.classList.add('active');
+                    }
+                });
+            });
+
+            // スクロール時のアクティブセクション検知 (ScrollSpy)
+            const mainEl = document.querySelector('main');
+            if (mainEl) {
+                // PC表示時のスクロール検知
+                mainEl.addEventListener('scroll', throttle(handleScroll, 100));
+            } else {
+                // モバイル表示のときのウィンドウスクロール検知
+                window.addEventListener('scroll', throttle(handleScroll, 100));
+            }
+
+            function handleScroll() {
+                const fromTop = (mainEl && window.innerWidth >= 1024) ? mainEl.scrollTop + 100 : window.scrollY + 150;
+                let currentSectionId = '';
+
+                sectionCards.forEach(card => {
+                    const cardTop = (mainEl && window.innerWidth >= 1024) ? card.offsetTop : card.getBoundingClientRect().top + window.scrollY;
+                    if (cardTop <= fromTop) {
+                        currentSectionId = card.id;
+                    }
+                });
+
+                if (currentSectionId) {
+                    navItems.forEach(item => {
+                        if (item.getAttribute('data-target') === currentSectionId) {
+                            item.classList.add('active');
+                        } else {
+                            item.classList.remove('active');
+                        }
+                    });
+                }
+            }
+
+            // 簡単なスロットル関数
+            function throttle(fn, wait) {
+                let time = Date.now();
+                return function() {
+                    if ((time + wait - Date.now()) < 0) {
+                        fn();
+                        time = Date.now();
+                    }
+                }
+            }
+
+        });
+    </script>
+</body>
+</html>
