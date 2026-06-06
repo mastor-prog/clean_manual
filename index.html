@@ -852,11 +852,11 @@
                     </li>
                     <li class="nav-item" data-target="card-trash">
                         <span class="nav-text">2. ゴミの回収・廃棄</span>
-                        <span class="nav-badge" id="nav-badge-trash">0/3</span>
+                        <span class="nav-badge" id="nav-badge-trash">0/4</span>
                     </li>
                     <li class="nav-item" data-target="card-kitchen">
                         <span class="nav-text">3. 水回り：キッチン</span>
-                        <span class="nav-badge" id="nav-badge-kitchen">0/5</span>
+                        <span class="nav-badge" id="nav-badge-kitchen">0/7</span>
                     </li>
                     <li class="nav-item" data-target="card-bathroom">
                         <span class="nav-text">4. 水回り：バスルーム</span>
@@ -876,11 +876,11 @@
                     </li>
                     <li class="nav-item" data-target="card-exterior">
                         <span class="nav-text">8. 玄関周り・外観・バルコニー</span>
-                        <span class="nav-badge" id="nav-badge-exterior">0/2</span>
+                        <span class="nav-badge" id="nav-badge-exterior">0/4</span>
                     </li>
                     <li class="nav-item" data-target="card-final">
                         <span class="nav-text">9. 退出時最終チェック</span>
-                        <span class="nav-badge" id="nav-badge-final">0/4</span>
+                        <span class="nav-badge" id="nav-badge-final">0/5</span>
                     </li>
                 </ul>
             </div>
@@ -911,20 +911,24 @@
                     </label>
                     <div class="todo-label has-image" for="todo-1-1">
                         <div class="todo-text-area">
-                            <span class="todo-label-text">【最重要】洗濯乾燥機のフィルタ清掃</span>
-                        <div class="todo-desc">
-                            乾燥機能の低下や故障を防ぐため、毎回必ず乾燥機のホコリ・フィルタの清掃を行ってください。
-                            <br>
-                            <a href="https://drive.google.com/drive/folders/1IMhPV8V5gGt5mISMOFpoJSK14BxzfOBp?usp=sharing" target="_blank" rel="noopener" class="manual-link-btn">
-                                📖 洗濯乾燥機 取扱説明書を開く (外部フォルダ)
-                            </a>
-                        </div>
-                        <div class="image-container-wrapper">
-                            <div class="image-container" onclick="openLightbox('images/photo/washing_filter_get.jpg', '洗濯乾燥機のフィルター取り外し')">
-                                <img src="images/photo/washing_filter_get.jpg" alt="洗濯乾燥機のフィルター取り外し">
-                                <span class="image-badge">お手本写真</span>
+                            <span class="todo-label-text">【最重要】洗濯乾燥機のお手入れ・内部確認</span>
+                            <div class="todo-desc">
+                                乾燥機能の低下や故障を防ぐため、毎回必ず乾燥機のホコリ・フィルターの清掃を行ってください。また、洗濯槽内部に忘れ物やゴミがないことを確認し、糸くずフィルターのゴミも綺麗に取り除いてください。
+                                <br>
+                                <a href="https://drive.google.com/drive/folders/1IMhPV8V5gGt5mISMOFpoJSK14BxzfOBp?usp=sharing" target="_blank" rel="noopener" class="manual-link-btn">
+                                    📖 洗濯乾燥機 取扱説明書を開く (外部フォルダ)
+                                </a>
                             </div>
-                        </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/washing_filter_get.jpg', '洗濯乾燥機のフィルター取り外し')">
+                                    <img src="images/photo/washing_filter_get.jpg" alt="洗濯乾燥機のフィルター取り外し">
+                                    <span class="image-badge">乾燥フィルター清掃</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/washing_drum.jpg', '清掃・確認後の洗濯槽内部・糸くずネット')">
+                                    <img src="images/photo/washing_drum.jpg" alt="清掃・確認後の洗濯槽内部・糸くずネット">
+                                    <span class="image-badge">洗濯槽・ネット確認</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -997,7 +1001,7 @@
                 <div class="section-title-area">
                     <div class="section-icon">🗑️</div>
                     <span class="section-title">2. ゴミの回収・廃棄</span>
-                    <span class="section-badge" id="badge-trash">0/3</span>
+                    <span class="section-badge" id="badge-trash">0/4</span>
                 </div>
                 <span class="arrow-icon">▼</span>
             </div>
@@ -1008,18 +1012,10 @@
                         <input type="checkbox" class="todo-check" data-section="trash" id="todo-2-1">
                         <span class="checkmark"></span>
                     </label>
-                    <div class="todo-label has-image" for="todo-2-1">
-                        <div class="todo-text-area">
-                            <span class="todo-label-text">室内すべてのゴミ箱からゴミを回収・袋セット</span>
+                    <div class="todo-label" for="todo-2-1">
+                        <span class="todo-label-text">【入室直後】窓開け換気の開始と室内のにおいチェック</span>
                         <div class="todo-desc">
-                            ゴミを分別して回収し、ゴミ箱には新しく清潔なゴミ袋を綺麗にセットしてください（はみ出しすぎないよう整える）。
-                        </div>
-                        <div class="image-container-wrapper">
-                            <div class="image-container" onclick="openLightbox('images/photo/trash_can.jpg', 'ゴミ袋のきれいなセット状態')">
-                                <img src="images/photo/trash_can.jpg" alt="ゴミ袋のきれいなセット状態">
-                                <span class="image-badge">お手本写真</span>
-                            </div>
-                        </div>
+                            入室後すぐにすべての窓を開けて換気を開始してください。同時に、エアコンのカビ臭、前ゲストの調理臭、タバコ臭などの異臭がないか確認してください。
                         </div>
                     </div>
                 </div>
@@ -1030,11 +1026,30 @@
                         <input type="checkbox" class="todo-check" data-section="trash" id="todo-2-2">
                         <span class="checkmark"></span>
                     </label>
-                    <div class="todo-label" for="todo-2-2">
-                        <span class="todo-label-text">回収したゴミを建物前のゴミ収集ボックスへ廃棄</span>
+                    <div class="todo-label has-image" for="todo-2-2">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">室内すべてのゴミ箱からゴミを回収・袋セット</span>
                         <div class="todo-desc">
-                            回収ゴミは建物前指定のゴミ収集ボックスへ廃棄してください。<br>
-                            <span style="color:var(--accent-red); font-weight:bold;">※日曜日以外はゴミ回収業者が回収します。</span>
+                            ゴミを分別して回収し、ゴミ箱には新しく清潔なゴミ袋を綺麗にセットしてください（はみ出しすぎないよう整える）。
+                        </div>
+                        <div class="image-container-wrapper">
+                            <div class="image-container" onclick="openLightbox('images/photo/trash_can.jpg', '客室ゴミ箱のきれいなセット状態')">
+                                <img src="images/photo/trash_can.jpg" alt="客室ゴミ箱のきれいなセット状態">
+                                <span class="image-badge">客室ゴミ箱 お手本</span>
+                            </div>
+                            <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/kitchen_trash_can.jpg', 'キッチン用ゴミ箱のきれいなセット状態')">
+                                <img src="images/photo/kitchen_trash_can.jpg" alt="キッチン用ゴミ箱のきれいなセット状態">
+                                <span class="image-badge">キッチンゴミ箱 全体</span>
+                            </div>
+                            <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/kitchen_trash_can_combustible.jpg', 'キッチン用ゴミ箱（可燃ゴミ）のセット状態')">
+                                <img src="images/photo/kitchen_trash_can_combustible.jpg" alt="キッチン用ゴミ箱（可燃ゴミ）のセット状態">
+                                <span class="image-badge">可燃ゴミ お手本</span>
+                            </div>
+                            <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/kitchen_trash_can_plastic.jpg', 'キッチン用ゴミ箱（ペットボトル）のセット状態')">
+                                <img src="images/photo/kitchen_trash_can_plastic.jpg" alt="キッチン用ゴミ箱（ペットボトル）のセット状態">
+                                <span class="image-badge">ペットボトル お手本</span>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -1046,9 +1061,32 @@
                         <span class="checkmark"></span>
                     </label>
                     <div class="todo-label" for="todo-2-3">
-                        <span class="todo-label-text">冷蔵庫・電子レンジ内の残置物の廃棄</span>
+                        <span class="todo-label-text">回収したゴミを建物前のゴミ収集ボックスへ廃棄</span>
                         <div class="todo-desc">
-                            前ゲストの残置物（飲食物や調味料等）がないか冷蔵庫・電子レンジ内を確認し、すべて廃棄・空にしてください。
+                            回収ゴミは建物前指定のゴミ収集ボックスへ廃棄してください。<br>
+                            <span style="color:var(--accent-red); font-weight:bold;">※日曜日以外はゴミ回収業者が回収します。</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 2-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="trash" id="todo-2-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-2-4">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">冷蔵庫・電子レンジ内の残置物の廃棄</span>
+                            <div class="todo-desc">
+                                前ゲストの残置物（飲食物や調味料等）がないか冷蔵庫・電子レンジ内を確認し、すべて廃棄・空にしてください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/kitchen_microwave.jpg', '清掃・確認後の電子レンジ内部')">
+                                    <img src="images/photo/kitchen_microwave.jpg" alt="清掃・確認後の電子レンジ内部">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1061,7 +1099,7 @@
                 <div class="section-title-area">
                     <div class="section-icon">🍳</div>
                     <span class="section-title">3. 水回り：キッチン</span>
-                    <span class="section-badge" id="badge-kitchen">0/5</span>
+                    <span class="section-badge" id="badge-kitchen">0/7</span>
                 </div>
                 <span class="arrow-icon">▼</span>
             </div>
@@ -1085,7 +1123,11 @@
                             <div class="image-container-wrapper">
                                 <div class="image-container" onclick="openLightbox('images/photo/kitchen_under_sink.jpg', 'シンク下収納内の食器・備品の整頓状態')">
                                     <img src="images/photo/kitchen_under_sink.jpg" alt="シンク下収納内の食器・備品の整頓状態">
-                                    <span class="image-badge">収納お手本</span>
+                                    <span class="image-badge">食器類 収納お手本</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/kitchen_under_sink_pots.jpg', 'シンク下収納内の調理器具の整頓状態')">
+                                    <img src="images/photo/kitchen_under_sink_pots.jpg" alt="シンク下収納内の調理器具の整頓状態">
+                                    <span class="image-badge">調理器具 収納お手本</span>
                                 </div>
                             </div>
                         </div>
@@ -1180,6 +1222,50 @@
                                 <span class="image-badge">お手本写真</span>
                             </div>
                         </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 3-6 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-6">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-6">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">電気ケトル内の水抜き・内部確認</span>
+                            <div class="todo-desc">
+                                電気ケトル内に水が残っていないか確認し、完全に空にして内部を乾燥させてください。確認後は蓋を閉じた状態で所定の位置に置いてください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/kitchen_kettle.jpg', '電気ケトル内部の確認（水抜き・乾燥状態）')">
+                                    <img src="images/photo/kitchen_kettle.jpg" alt="電気ケトル内部の確認（水抜き・乾燥状態）">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 3-7 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="kitchen" id="todo-3-7">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-3-7">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">キッチン家電ラックの拭き掃除と備品配置</span>
+                            <div class="todo-desc">
+                                電子レンジ、炊飯器、電気ケトル等の家電表面とラックの棚板を拭き上げ、ホコリや指紋を取り除いてください。また、除菌シートやティッシュ等の備品をお手本写真の通りに正しく配置してください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/kitchen_rack.jpg', '整頓されたキッチン家電ラックと備品配置')">
+                                    <img src="images/photo/kitchen_rack.jpg" alt="整頓されたキッチン家電ラックと備品配置">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1494,10 +1580,19 @@
                         <input type="checkbox" class="todo-check" data-section="rooms" id="todo-6-5">
                         <span class="checkmark"></span>
                     </label>
-                    <div class="todo-label" for="todo-6-5">
-                        <span class="todo-label-text">全室の掃除機がけ＆フローリング拭き掃除</span>
-                        <div class="todo-desc">
-                            リビング、寝室、廊下の床全体に掃除機をかけ、フローリング部分は水拭き（または専用ワイパー）でスッキリと拭き上げてください。
+                    <div class="todo-label has-image" for="todo-6-5">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">全室の掃除機がけ＆フローリング拭き掃除</span>
+                            <div class="todo-desc">
+                                リビング、寝室、廊下の床全体に掃除機をかけ、フローリング部分は水拭き（または専用ワイパー）でスッキリと拭き上げてください。
+                                <br><strong style="color: var(--accent-red);">【重要】使用後は掃除機を家電ラック横の定位置に戻し、必ず充電器に接続して充電を開始してください。</strong>
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/vacuum_cleaner_charging.jpg', '掃除機の収納位置と充電状態の確認')">
+                                    <img src="images/photo/vacuum_cleaner_charging.jpg" alt="掃除機の収納位置と充電状態の確認">
+                                    <span class="image-badge">充電・定位置</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1509,9 +1604,9 @@
                         <span class="checkmark"></span>
                     </label>
                     <div class="todo-label" for="todo-6-6">
-                        <span class="todo-label-text">家具・水平面のホコリ拭き取り</span>
+                        <span class="todo-label-text">家具・水平面のホコリ拭き取り＆ドアノブ・スイッチ類の除菌拭き</span>
                         <div class="todo-desc">
-                            テレビ台、テーブル、棚の上、窓枠など、ホコリが目立ちやすい水平部分をダスターで綺麗に拭き取ってください。
+                            テレビ台、テーブル、棚の上、窓枠などホコリが目立ちやすい水平部分を拭き取ってください。また、ドアノブ、照明スイッチ、各種リモコン、WiFiルーターなど、ゲストが頻繁に触れる箇所は除菌シート等で丁寧に拭き上げてください。
                         </div>
                     </div>
                 </div>
@@ -1744,7 +1839,7 @@
                 <div class="section-title-area">
                     <div class="section-icon">🚪</div>
                     <span class="section-title">8. 玄関周り・外観・バルコニー</span>
-                    <span class="section-badge" id="badge-exterior">0/2</span>
+                    <span class="section-badge" id="badge-exterior">0/4</span>
                 </div>
                 <span class="arrow-icon">▼</span>
             </div>
@@ -1784,6 +1879,50 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- アイテム 8-3 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="exterior" id="todo-8-3">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-8-3">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">下駄箱内のスリッパ整頓と確認</span>
+                            <div class="todo-desc">
+                                下駄箱を開け、スリッパが向きを揃えて美しく整頓されているか確認・配置してください。不足や汚れがある場合は、ストックから新しいスリッパに交換してください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/entrance_slippers.jpg', '下駄箱内のスリッパ整頓状態')">
+                                    <img src="images/photo/entrance_slippers.jpg" alt="下駄箱内のスリッパ整頓状態">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 8-4 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="exterior" id="todo-8-4">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label has-image" for="todo-8-4">
+                        <div class="todo-text-area">
+                            <span class="todo-label-text">玄関たたき（土間）の掃き掃除と拭き上げ</span>
+                            <div class="todo-desc">
+                                玄関のたたき（土間）部分の砂やゴミをほうき（または掃除機）できれいに取り除き、汚れがある場合は除菌シート等で水拭き・拭き上げを行ってください。
+                            </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/entrance_floor.jpg', '清掃・整頓後の玄関たたき')">
+                                    <img src="images/photo/entrance_floor.jpg" alt="清掃・整頓後の玄関たたき">
+                                    <span class="image-badge">お手本写真</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -1793,7 +1932,7 @@
                 <div class="section-title-area">
                     <div class="section-icon">✓</div>
                     <span class="section-title">9. 退出時最終チェック</span>
-                    <span class="section-badge" id="badge-final">0/4</span>
+                    <span class="section-badge" id="badge-final">0/5</span>
                 </div>
                 <span class="arrow-icon">▼</span>
             </div>
@@ -1811,15 +1950,19 @@
                     <div class="todo-label has-image" for="todo-9-1">
                         <div class="todo-text-area">
                             <span class="todo-label-text">エアコン、照明、テレビ等の電源オフ確認</span>
-                        <div class="todo-desc">
-                            すべての照明、テレビ、エアコンなどの電源が完全に「オフ」になっていることを確認して、節電対策を徹底してください。
-                        </div>
-                        <div class="image-container-wrapper">
-                            <div class="image-container" onclick="openLightbox('images/photo/power_off.jpg', '給湯器等のリモコンオフ画面')">
-                                <img src="images/photo/power_off.jpg" alt="給湯器等のリモコンオフ画面">
-                                <span class="image-badge">お手本写真</span>
+                            <div class="todo-desc">
+                                すべての照明、テレビ、エアコンなどの電源が完全に「オフ」になっていることを確認してください。**特にエアコンは、本体のルーバー（風向き板）が完全に閉じていることを目視で確認し、消し忘れを防いでください。**
                             </div>
-                        </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/ac_off_state.jpg', 'エアコンの停止状態（ルーバー閉）')">
+                                    <img src="images/photo/ac_off_state.jpg" alt="エアコンの停止状態（ルーバー閉）">
+                                    <span class="image-badge">エアコン消音</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/power_off.jpg', '給湯器等のリモコンオフ画面')">
+                                    <img src="images/photo/power_off.jpg" alt="給湯器等のリモコンオフ画面">
+                                    <span class="image-badge">リモコンオフ</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1832,16 +1975,20 @@
                     </label>
                     <div class="todo-label has-image" for="todo-9-2">
                         <div class="todo-text-area">
-                            <span class="todo-label-text">エアコン・テレビ等リモコンの並べ置き</span>
-                        <div class="todo-desc">
-                            リモコン類はテレビ台やテーブルの上にきれいに並べて置いてください。
-                        </div>
-                        <div class="image-container-wrapper">
-                            <div class="image-container" onclick="openLightbox('images/photo/ac_remote.jpg', 'エアコンリモコンの設定と配置')">
-                                <img src="images/photo/ac_remote.jpg" alt="エアコンリモコンの設定と配置">
-                                <span class="image-badge">お手本写真</span>
+                            <span class="todo-label-text">テーブルのセット・リモコン類の並べ置き</span>
+                            <div class="todo-desc">
+                                テーブルの上を拭き上げた後、ハウスガイド、LEDキャンドル、リモコン類をお手本写真の通りに配置してください。また、椅子をテーブルに寄せて綺麗に整頓します。
                             </div>
-                        </div>
+                            <div class="image-container-wrapper">
+                                <div class="image-container" onclick="openLightbox('images/photo/dining_table_set.jpg', 'ダイニングテーブルのセット完了状態')">
+                                    <img src="images/photo/dining_table_set.jpg" alt="ダイニングテーブルのセット完了状態">
+                                    <span class="image-badge">全体セット</span>
+                                </div>
+                                <div class="image-container" style="margin-top: 8px;" onclick="openLightbox('images/photo/ac_remote.jpg', 'エアコンリモコンの設定と配置')">
+                                    <img src="images/photo/ac_remote.jpg" alt="エアコンリモコンの設定と配置">
+                                    <span class="image-badge">リモコン配置</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1869,12 +2016,26 @@
                     <div class="todo-label" for="todo-9-4">
                         <span class="todo-label-text">報告用写真の撮影（各ベッド・水回り・全体）</span>
                         <div class="todo-desc">
-                            清掃完了のエビデンスとして、以下の写真を撮影してください。
+                            清鎖完了のエビデンスとして、以下の写真を撮影してください。
                             <ul>
                                 <li>各ベッドのセッティング状態</li>
                                 <li>水回り全体（キッチンシンク、バスルーム、トイレ、洗面台）</li>
                                 <li>客室全体の様子</li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- アイテム 9-5 -->
+                <div class="todo-item">
+                    <label class="checkbox-container">
+                        <input type="checkbox" class="todo-check" data-section="final" id="todo-9-5">
+                        <span class="checkmark"></span>
+                    </label>
+                    <div class="todo-label" for="todo-9-5">
+                        <span class="todo-label-text">退出直前の空間消臭スプレー散布</span>
+                        <div class="todo-desc">
+                            玄関ドアを閉める直前に、リビングや寝室、トイレの空間に向けて消臭・除菌スプレー（ファブリーズ等）を散布し、お部屋全体を爽やかな状態に仕上げてください。
                         </div>
                     </div>
                 </div>
